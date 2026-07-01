@@ -1,0 +1,33 @@
+data:
+  application_train: "data/application_train.csv"
+  bureau: "data/bureau.csv"
+  previous_application: "data/previous_application.csv"
+  target_column: "TARGET"
+
+split:
+  test_size: 0.10
+  random_state: 42
+  stratify: true
+
+model:
+  scoring_metric: "f1"
+  cv_folds: 5
+  hyperparameter_grid:
+    max_depth: [3, 5, 7]
+    learning_rate: [0.01, 0.1, 0.2]
+    n_estimators: [100, 200, 300]
+    scale_pos_weight: [1, 3, 5]
+
+mlflow:
+  tracking_uri: "sqlite:///mlruns.db"
+  experiment_name: "home-credit-risk-engine"
+  tags:
+    project: "loan-default-pipeline"
+    dataset: "home-credit"
+    framework: "xgboost"
+
+outputs:
+  directory: "outputs"
+  model_filename: "model.joblib"
+  shap_filename: "shap_summary.png"
+  metrics_filename: "metrics.json"
