@@ -1,6 +1,6 @@
-# Enterprise Loan Default Prediction Engine
+# Loan Default Prediction Pipeline
 
-An end-to-end risk analytics engine built to evaluate instant credit applications, optimize F1-score classification, and export production-ready model artifacts.
+An end-to-end Loan Default Prediction Pipeline
 
 This project was developed to process the 300,000+ row relational Home Credit Default Risk dataset. It serves as a complete microservice, featuring automated hyperparameter tuning and a containerized REST API for real-time inference.
 
@@ -9,11 +9,11 @@ This project was developed to process the 300,000+ row relational Home Credit De
 The pipeline is entirely modular and config-driven, built with the following stack:
 
 - **Data Engineering**: Polars for lazy-evaluated, memory-efficient relational joins across multiple banking tables.
-- **Machine Learning**: XGBoost utilizing native GPU acceleration (`device: cuda`) and `scale_pos_weight` to mathematically penalize false negatives.
+- **Machine Learning**: XGBoost utilizing native GPU acceleration (`device: cuda`) and `scale_pos_weight` to penalize false negatives.
 - **Bayesian Optimization**: Optuna replaces brute-force grid search, utilizing probabilistic models to find optimal hyperparameters efficiently.
 - **MLOps Tracking**: MLflow integrated via Optuna callbacks to log trials, parameters, and model artifacts to a local SQLite backend.
 - **Explainability**: SHAP (SHapley Additive exPlanations) for compliance-ready, tree-based feature importance mapping.
-- **Deployment**: FastAPI and Docker to wrap the predictive model in a cloud-ready, containerized REST API.
+- **Deployment**: FastAPI and Docker to wrap the predictive model in a containerized REST API.
 
 ## Training Results & Evaluation
 
